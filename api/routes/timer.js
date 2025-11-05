@@ -3,7 +3,9 @@ const express = require('express');
 const router = express.Router();
 const { getSheetsClient, appendRow } = require('../services/sheets');
 
-// Middleware to check API key
+// SECURITY NOTE: API key is in query parameter for iOS Shortcuts compatibility.
+// This is a trade-off between security and usability for this personal tool.
+// For production apps with sensitive data, use Authorization headers instead.
 function requireApiKey(req, res, next) {
   const apiKey = req.query.apiKey;
   if (!apiKey || apiKey !== process.env.API_KEY) {
