@@ -39,11 +39,17 @@ router.post('/start', requireApiKey, async (req, res) => {
   }
 });
 
-// Debug endpoint to check environment variables
+// Debug endpoint to check environment variables and API key matching
 router.get('/debug', (req, res) => {
+  const testKey = req.query.apiKey;
+  const envKey = process.env.API_KEY;
   res.json({
-    apiKeySet: !!process.env.API_KEY,
-    apiKeyLength: process.env.API_KEY ? process.env.API_KEY.length : 0,
+    apiKeySet: !!envKey,
+    apiKeyLength: envKey ? envKey.length : 0,
+    testKeyLength: testKey ? testKey.length : 0,
+    keysMatch: testKey === envKey,
+    envKeyFirst10: envKey ? envKey.substring(0, 10) : 'none',
+    testKeyFirst10: testKey ? testKey.substring(0, 10) : 'none',
     sheetIdSet: !!process.env.GOOGLE_SHEET_ID,
     emailSet: !!process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
     privateKeySet: !!process.env.GOOGLE_PRIVATE_KEY
