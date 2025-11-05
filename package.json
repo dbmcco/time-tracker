@@ -1,8 +1,8 @@
 {
-  "name": "time-tracker",
+  "name": "siri-time-tracker",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Voice-activated time tracking using Siri, iOS Shortcuts, and Google Sheets",
+  "main": "api/index.js",
   "directories": {
     "doc": "docs"
   },
@@ -14,12 +14,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dbmcco/time-tracker.git"
+    "url": "https://github.com/dbmcco/time-tracker.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "time-tracking",
+    "siri",
+    "ios-shortcuts",
+    "google-sheets",
+    "serverless"
+  ],
+  "author": "Braydon",
+  "license": "UNLICENSED",
+  "private": true,
   "type": "commonjs",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "bugs": {
     "url": "https://github.com/dbmcco/time-tracker/issues"
   },
