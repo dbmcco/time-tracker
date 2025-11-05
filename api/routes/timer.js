@@ -39,6 +39,17 @@ router.post('/start', requireApiKey, async (req, res) => {
   }
 });
 
+// Debug endpoint to check environment variables
+router.get('/debug', (req, res) => {
+  res.json({
+    apiKeySet: !!process.env.API_KEY,
+    apiKeyLength: process.env.API_KEY ? process.env.API_KEY.length : 0,
+    sheetIdSet: !!process.env.GOOGLE_SHEET_ID,
+    emailSet: !!process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+    privateKeySet: !!process.env.GOOGLE_PRIVATE_KEY
+  });
+});
+
 router.post('/stop', requireApiKey, async (req, res) => {
   try {
     const { task = '' } = req.query;
