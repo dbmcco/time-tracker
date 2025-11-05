@@ -1,4 +1,5 @@
 // ABOUTME: Main Express server for Siri Time Tracker API
+// Version: 1.0.1 - Fixed Google Sheets authentication
 require('dotenv').config();
 const express = require('express');
 const timerRoutes = require('./routes/timer');
