@@ -136,6 +136,22 @@ Test coverage: >80% (branches, functions, lines, statements)
 npm test
 ```
 
+## Security Notes
+
+**⚠️ IMPORTANT: Never commit your `.env` file!**
+
+Your `.env` file contains sensitive credentials:
+- Google Service Account private key
+- API authentication key
+- Sheet IDs
+
+**Recommended: Store secrets in a password manager**
+- 1Password, LastPass, Bitwarden, etc.
+- Store as "Siri Time Tracker Credentials"
+- Include: Service account email, private key, API key, sheet ID
+
+The `.gitignore` file is already configured to exclude `.env` from version control.
+
 ## License
 
-Private - Internal use only
+MIT - Free to use and modify

@@ -39,44 +39,6 @@ router.post('/start', requireApiKey, async (req, res) => {
   }
 });
 
-// Debug endpoint to check environment variables and API key matching
-router.get('/debug', (req, res) => {
-  const testKey = req.query.apiKey;
-  const envKey = process.env.API_KEY;
-  res.json({
-    apiKeySet: !!envKey,
-    apiKeyLength: envKey ? envKey.length : 0,
-    testKeyLength: testKey ? testKey.length : 0,
-    keysMatch: testKey === envKey,
-    envKeyFirst10: envKey ? envKey.substring(0, 10) : 'none',
-    testKeyFirst10: testKey ? testKey.substring(0, 10) : 'none',
-    sheetIdSet: !!process.env.GOOGLE_SHEET_ID,
-    emailSet: !!process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-    privateKeySet: !!process.env.GOOGLE_PRIVATE_KEY,
-    privateKeyLength: process.env.GOOGLE_PRIVATE_KEY ? process.env.GOOGLE_PRIVATE_KEY.length : 0,
-    privateKeyFirst50: process.env.GOOGLE_PRIVATE_KEY ? process.env.GOOGLE_PRIVATE_KEY.substring(0, 50) : 'none'
-  });
-});
-
-// Test Google Sheets authentication
-router.get('/test-sheets', async (req, res) => {
-  try {
-    const sheets = getSheetsClient();
-    const spreadsheetId = process.env.GOOGLE_SHEET_ID;
-    const result = await sheets.spreadsheets.get({ spreadsheetId });
-    res.json({
-      success: true,
-      sheetTitle: result.data.properties.title
-    });
-  } catch (error) {
-    res.json({
-      success: false,
-      error: error.message,
-      code: error.code
-    });
-  }
-});
-
 router.post('/stop', requireApiKey, async (req, res) => {
   try {
     const { task = '' } = req.query;
