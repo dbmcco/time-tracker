@@ -12,7 +12,7 @@
 You need these values for Vercel:
 
 1. **GOOGLE_SERVICE_ACCOUNT_EMAIL**
-   - Value: `claude@versatile-brace-473317-m8.iam.gserviceaccount.com`
+   - Value: `your-service-account@your-project.iam.gserviceaccount.com`
 
 2. **GOOGLE_PRIVATE_KEY**
    - From your service account JSON file
@@ -20,10 +20,10 @@ You need these values for Vercel:
    - Keep the `\n` characters (or actual newlines)
 
 3. **GOOGLE_SHEET_ID**
-   - Value: `1AIj1yQ46Sg3_wL6BhAVrB7_ybXv2sSuAhhhsM0IShnI`
+   - Value: `YOUR_SPREADSHEET_ID_HERE`
 
 4. **API_KEY**
-   - Value: `sk_time_tracker_ad09b3aeeb7a438bb0d347b63964c8ff`
+   - Value: `YOUR_API_KEY_HERE`
 
 ## Step 2: Push to GitHub
 
@@ -60,7 +60,7 @@ Follow prompts:
 3. Go to Settings → Environment Variables
 4. Add each variable:
    - Name: `GOOGLE_SERVICE_ACCOUNT_EMAIL`
-   - Value: `claude@versatile-brace-473317-m8.iam.gserviceaccount.com`
+   - Value: `your-service-account@your-project.iam.gserviceaccount.com`
    - Environment: Production
    - Click "Save"
 5. Repeat for all 4 environment variables
@@ -68,16 +68,16 @@ Follow prompts:
 ### Option B: Via CLI
 ```bash
 vercel env add GOOGLE_SERVICE_ACCOUNT_EMAIL production
-# Paste value when prompted: claude@versatile-brace-473317-m8.iam.gserviceaccount.com
+# Paste value when prompted: your-service-account@your-project.iam.gserviceaccount.com
 
 vercel env add GOOGLE_PRIVATE_KEY production
 # Paste private key (entire value including -----BEGIN/END-----)
 
 vercel env add GOOGLE_SHEET_ID production
-# Paste: 1AIj1yQ46Sg3_wL6BhAVrB7_ybXv2sSuAhhhsM0IShnI
+# Paste: YOUR_SPREADSHEET_ID_HERE
 
 vercel env add API_KEY production
-# Paste: sk_time_tracker_ad09b3aeeb7a438bb0d347b63964c8ff
+# Paste: YOUR_API_KEY_HERE
 ```
 
 ## Step 5: Redeploy After Adding Environment Variables
@@ -102,12 +102,12 @@ Save this URL - you'll need it for iOS Shortcuts.
 curl https://YOUR-DEPLOYMENT.vercel.app/health
 
 # Test timer start (replace YOUR-DEPLOYMENT and API-KEY)
-curl -X POST "https://YOUR-DEPLOYMENT.vercel.app/timer/start?project=TestProject&apiKey=sk_time_tracker_ad09b3aeeb7a438bb0d347b63964c8ff"
+curl -X POST "https://YOUR-DEPLOYMENT.vercel.app/timer/start?project=TestProject&apiKey=YOUR_API_KEY_HERE"
 
 # Check Google Sheet - should see new row
 
 # Test timer stop
-curl -X POST "https://YOUR-DEPLOYMENT.vercel.app/timer/stop?task=Testing&apiKey=sk_time_tracker_ad09b3aeeb7a438bb0d347b63964c8ff"
+curl -X POST "https://YOUR-DEPLOYMENT.vercel.app/timer/stop?task=Testing&apiKey=YOUR_API_KEY_HERE"
 
 # Check Google Sheet - row should be updated
 ```

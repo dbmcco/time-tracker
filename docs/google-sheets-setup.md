@@ -43,7 +43,7 @@ In B10:
 
 1. Open your Google Sheet
 2. Click "Share" in top right
-3. Add the service account email: `claude@versatile-brace-473317-m8.iam.gserviceaccount.com`
+3. Add the service account email: `your-service-account@your-project.iam.gserviceaccount.com`
 4. Grant "Editor" permissions
 5. Click "Send" (uncheck "Notify people")
 

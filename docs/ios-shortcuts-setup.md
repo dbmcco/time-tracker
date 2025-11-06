@@ -12,7 +12,7 @@
 
 From your `.env` file:
 - Production URL: `https://time-tracker-YOUR-DEPLOYMENT.vercel.app`
-- API Key: `sk_time_tracker_ad09b3aeeb7a438bb0d347b63964c8ff`
+- API Key: `YOUR_API_KEY_HERE`
 
 ### 2. Create "Start [Project]" Shortcuts
 
@@ -22,7 +22,7 @@ For each project you track (e.g., ClientA, ClientB, Personal):
 2. Tap "+" to create new shortcut
 3. Name it: "Start ClientA" (or your project name)
 4. Add action: "Get Contents of URL"
-   - URL: `https://YOUR-DEPLOYMENT.vercel.app/timer/start?project=ClientA&apiKey=sk_time_tracker_ad09b3aeeb7a438bb0d347b63964c8ff`
+   - URL: `https://YOUR-DEPLOYMENT.vercel.app/timer/start?project=ClientA&apiKey=YOUR_API_KEY_HERE`
    - Method: POST
    - Headers: none needed
    - Body: empty
@@ -47,7 +47,7 @@ Repeat for each project you want to track.
    - Variable Name: TaskDescription
    - Value: [Provided Input from previous action]
 6. Add action: "Get Contents of URL"
-   - URL: `https://YOUR-DEPLOYMENT.vercel.app/timer/stop?task=[TaskDescription]&apiKey=sk_time_tracker_ad09b3aeeb7a438bb0d347b63964c8ff`
+   - URL: `https://YOUR-DEPLOYMENT.vercel.app/timer/stop?task=[TaskDescription]&apiKey=YOUR_API_KEY_HERE`
    - Method: POST
    - Headers: none needed
    - Body: empty
